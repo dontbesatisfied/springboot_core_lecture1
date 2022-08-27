@@ -1,14 +1,24 @@
 package com.example.pure_kotlin.order
 
+import com.example.pure_kotlin.AppConfig
 import com.example.pure_kotlin.member.Grade
 import com.example.pure_kotlin.member.Member
+import com.example.pure_kotlin.member.MemberService
 import com.example.pure_kotlin.member.MemberServiceImpl
 import org.junit.jupiter.api.Assertions
+import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 
 class OrderServiceTest {
-    private val memberService = MemberServiceImpl()
-    private val orderService = OrderServiceImpl()
+    private lateinit var memberService: MemberService
+    private lateinit var orderService: OrderService
+
+    @BeforeEach
+    fun beforeEach() {
+        val appConfig = AppConfig()
+        memberService = appConfig.memberService()
+        orderService = appConfig.orderService()
+    }
 
     @Test
     fun createOrder() {

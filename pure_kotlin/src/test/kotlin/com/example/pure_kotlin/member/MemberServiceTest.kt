@@ -1,10 +1,17 @@
 package com.example.pure_kotlin.member
 
+import com.example.pure_kotlin.AppConfig
 import org.junit.jupiter.api.Assertions
+import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 
 class MemberServiceTest {
-    private val memberService = MemberServiceImpl()
+    private lateinit var memberService: MemberService
+
+    @BeforeEach
+    fun beforeEach() {
+        memberService = AppConfig().memberService()
+    }
 
     @Test
     fun join() {

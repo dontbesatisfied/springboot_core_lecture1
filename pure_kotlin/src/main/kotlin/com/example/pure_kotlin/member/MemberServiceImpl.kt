@@ -1,8 +1,10 @@
 package com.example.pure_kotlin.member
 
-class MemberServiceImpl: MemberService {
+class MemberServiceImpl(
+    private val memberRepository: MemberRepository
+): MemberService {
 
-    private val memberRepository = MemoryMemberRepository()
+//    private val memberRepository = MemoryMemberRepository()
 
 
     override fun join(member: Member) {

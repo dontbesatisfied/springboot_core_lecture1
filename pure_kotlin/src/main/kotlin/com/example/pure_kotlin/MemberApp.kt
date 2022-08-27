@@ -6,7 +6,7 @@ import com.example.pure_kotlin.member.MemberServiceImpl
 
 //class MemberApp {
     fun main(args: Array<String>) {
-        val memberService = MemberServiceImpl()
+        val memberService = AppConfig().memberService()
         val member = Member(1L, "memberA", Grade.VIP)
         memberService.join(member)
 

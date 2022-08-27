@@ -9,8 +9,9 @@ class OrderApp {
 }
 
 fun main(args: Array<String>) {
-    val memberService = MemberServiceImpl()
-    val orderService = OrderServiceImpl()
+    val appConfig = AppConfig()
+    val memberService = appConfig.memberService()
+    val orderService = appConfig.orderService()
 
     val member = Member(1L, "memberA", Grade.VIP)
     memberService.join(member)
